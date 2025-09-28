@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace XenoUI
+namespace BrookhavenUI
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

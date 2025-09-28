@@ -1,5 +1,5 @@
 {
-    "name": "vcpkg-xeno",
+    "name": "vcpkg-Brookhaven",
     "version-string": "master",
     "dependencies": [
         "openssl",

@@ -26,17 +26,17 @@ static void newClient(DWORD pid) {
 static void init() {
     DWORD CurrentPID = GetCurrentProcessId();
 
-    std::vector<DWORD> xenoPIDs = GetProcessIDsByName(L"Xeno.exe");
-    std::vector<DWORD> xenoUIPIDs = GetProcessIDsByName(L"XenoUI.exe");
+    std::vector<DWORD> BrookhavenPIDs = GetProcessIDsByName(L"Brookhaven.exe");
+    std::vector<DWORD> BrookhavenUIPIDs = GetProcessIDsByName(L"BrookhavenUI.exe");
 
-    xenoPIDs.insert(xenoPIDs.end(), xenoUIPIDs.begin(), xenoUIPIDs.end());
+    BrookhavenPIDs.insert(BrookhavenPIDs.end(), BrookhavenUIPIDs.begin(), BrookhavenUIPIDs.end());
 
-    for (const DWORD& pid : xenoPIDs) { // Terminate existing Xeno processes
+    for (const DWORD& pid : BrookhavenPIDs) { // Terminate existing Brookhaven processes
         if (pid == CurrentPID)
             continue;
-        HANDLE hXeno = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
-        if (hXeno)
-            TerminateProcess(hXeno, 0);
+        HANDLE hBrookhaven = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
+        if (hBrookhaven)
+            TerminateProcess(hBrookhaven, 0);
     }
 
     while (true) {
